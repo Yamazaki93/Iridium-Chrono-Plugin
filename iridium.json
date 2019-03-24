@@ -1,0 +1,8 @@
+{
+    "id": "0d4071d6-6359-456d-82f4-e4bac193e133",
+    "name": "Chrono Plugin",
+    "description": "A plugin that detects due date automatically",
+    "author": "Michael Lu",
+    "image": "icon.jpg",
+    "main": "index.js"
+}
