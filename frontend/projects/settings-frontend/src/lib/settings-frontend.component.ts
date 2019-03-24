@@ -13,7 +13,7 @@ export class SettingsFrontendComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.imagePath = this.injector.get('StaticAssets').GetAssetPath('icon.png');
+    this.imagePath = this.injector.get('StaticAssets').GetAssetPath('icon.jpg');
   }
 
 }
