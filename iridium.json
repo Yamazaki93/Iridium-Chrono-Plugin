@@ -4,5 +4,11 @@
     "description": "A plugin that detects due date automatically",
     "author": "Michael Lu",
     "image": "icon.jpg",
-    "main": "index.js"
+    "main": "index.js",
+    "frontend": {
+        "settingsPage": {
+            "module": "SettingsFrontendModule",
+            "path": "frontend/dist/settings-frontend"
+        }
+    }
 }

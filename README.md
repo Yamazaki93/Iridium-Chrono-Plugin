@@ -4,9 +4,11 @@ This is a plugin for Iridium app that uses chrono (https://github.com/wanasit/ch
 
 # Requirements
 
-Iridium 0.9.0 or above.
+ - Node.js 10 and npm
+ - Iridium 0.9.0 or above
 
 # Installation And Run
 
-1. Download/Clone the repository under `Your Home Directory/Iridium/plugins/` as a folder.
-2. Launch Iridium, and that's it!
+ 1. Download/Clone the repository under `Your Home Directory/Iridium/plugins/` as a folder.
+ 2. `cd` into the cloned directory, then run `npm`
+ 3. Launch Iridium, and that's it!
