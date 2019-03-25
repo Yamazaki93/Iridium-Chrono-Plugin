@@ -3,5 +3,19 @@
     <h2>Iridium Chrono Plugin</h2>
 </div>
 <div class="mt-1">
-
+    <h3 class="mt-1">Locale</h3>
+    <p>Select the preferred date detection locale.</p>
+    <div>
+        <select [(ngModel)]="selectedLocale">
+            <option [ngValue]="'en'">English - US</option>
+            <option [ngValue]="'en_GB'">English - GB</option>
+            <option [ngValue]="'de'">Deutsche</option>
+            <option [ngValue]="'es'">Español</option>
+            <option [ngValue]="'fr'">Français</option>
+            <option [ngValue]="'ja'">日本語</option>
+        </select>
+    </div>
+</div>
+<div class="mt-1">
+  <button class="btn btn-primary btn-outline" (click)="setSettings()">Update Settings</button>
 </div>
