@@ -1,4 +1,6 @@
-import { Component, OnInit, Injector } from '@angular/core';
+import { Component, OnInit, Injector, OnDestroy } from '@angular/core';
+import { SettingsFrontendService } from './settings-frontend.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'lib-settings-frontend',
@@ -7,20 +9,30 @@ import { Component, OnInit, Injector } from '@angular/core';
     './settings-frontend.component.scss'
   ]
 })
-export class SettingsFrontendComponent implements OnInit {
+export class SettingsFrontendComponent implements OnInit, OnDestroy {
 
   selectedLocale = 'en';
   imagePath = '';
+  private subscription: Subscription;
   constructor(
-    private injector: Injector
+    private injector: Injector,
+    private settings: SettingsFrontendService,
   ) { }
 
   ngOnInit() {
+    this.subscription = this.settings.CurrentSettings.subscribe(cs => {
+      if (cs && cs.locale) {
+        this.selectedLocale = cs.locale;
+      }
+    });
     this.imagePath = this.injector.get('StaticAssets').GetAssetPath('icon.jpg');
+  }
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
   setSettings() {
-
+    this.settings.setLocale(this.selectedLocale);
   }
 
 }

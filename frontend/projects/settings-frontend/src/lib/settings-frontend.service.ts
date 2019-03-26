@@ -17,4 +17,9 @@ export class SettingsFrontendService {
       this.currentSettings.next(settings);
     });
   }
+  setLocale(locale: string) {
+    this.injector.get('Messenger').Send('Settings-SetLocale', {
+      locale
+    });
+  }
 }

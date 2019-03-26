@@ -1,6 +1,23 @@
 const chrono = require('chrono-node');
 const moment = require('moment');
+
+let currentLocale = 'en';
+
 module.exports.Initialize = (iridium) => {
+    iridium.Settings.GetSettings().then(settings => {
+        if(settings && settings.locale) {
+            currentLocale = settings.locale;
+        }
+        iridium.Messenger.Send('Settings-Updated', settings);
+    });
+    iridium.Messenger.on('Settings-SetLocale', (arg) => {
+        currentLocale = arg.locale;
+        let newSettings = {
+            locale: currentLocale
+        };
+        iridium.SetSettings(newSettings);
+        iridium.Messenger.Send('Settings-Updated', newSettings);
+    });
     iridium.TaskLists.on(iridium.TaskEvents.TaskCreated, (taskData) => {
         setDueDateBasedOnTaskData(iridium, taskData);
     });
@@ -10,7 +27,8 @@ module.exports.Initialize = (iridium) => {
 }
 
 function setDueDateBasedOnTaskData(iridium, taskData) {
-    let parsed = chrono.parse(taskData.title, new Date(), { forwardDate: true });
+    let chronoLocale = chrono[currentLocale] ? chrono[currentLocale] : chrono.en;
+    let parsed = chronoLocale.parse(taskData.title, new Date(), { forwardDate: true });
     if (parsed.length && parsed[0].start) {
         let dateObj = moment(parsed[0].start.date());
         iridium.TaskLists.SetTaskDueDate(taskData.listId, taskData.id, dateObj.format('YYYY-MM-DD'));
