@@ -10,12 +10,17 @@ module.exports.Initialize = (iridium) => {
         }
         iridium.Messenger.Send('Settings-Updated', settings);
     });
+    iridium.Messenger.on('Settings-Initialize', () => {
+        iridium.Messenger.Send('Settings-Updated', {
+            locale: currentLocale
+        });
+    });
     iridium.Messenger.on('Settings-SetLocale', (arg) => {
         currentLocale = arg.locale;
         let newSettings = {
             locale: currentLocale
         };
-        iridium.SetSettings(newSettings);
+        iridium.Settings.SetSettings(newSettings);
         iridium.Messenger.Send('Settings-Updated', newSettings);
     });
     iridium.TaskLists.on(iridium.TaskEvents.TaskCreated, (taskData) => {
