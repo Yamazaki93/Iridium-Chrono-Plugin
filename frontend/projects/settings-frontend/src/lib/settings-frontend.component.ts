@@ -22,8 +22,13 @@ export class SettingsFrontendComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.subscription = this.settings.CurrentSettings.subscribe(cs => {
-      if (cs && cs.locale) {
-        this.selectedLocale = cs.locale;
+      if (cs) {
+        if (cs.locale) {
+          this.selectedLocale = cs.locale;
+        }
+        if(cs.removeMatched) {
+          this.removeMatched = cs.removeMatched;
+        }
       }
     });
     this.imagePath = this.injector.get('StaticAssets').GetAssetPath('icon.jpg');
@@ -33,7 +38,7 @@ export class SettingsFrontendComponent implements OnInit, OnDestroy {
   }
 
   setSettings() {
-    this.settings.setLocale(this.selectedLocale);
+    this.settings.setLocale(this.selectedLocale, this.removeMatched);
   }
 
 }

@@ -20,9 +20,10 @@ export class SettingsFrontendService {
     });
     this.injector.get('Messenger').Send('Settings-Initialize', {});
   }
-  setLocale(locale: string) {
-    this.injector.get('Messenger').Send('Settings-SetLocale', {
-      locale
+  setLocale(locale: string, removeMatched: boolean) {
+    this.injector.get('Messenger').Send('Settings-SetSettings', {
+      locale,
+      removeMatched
     });
   }
 }
