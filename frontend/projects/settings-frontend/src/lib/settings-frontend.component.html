@@ -4,8 +4,8 @@
 </div>
 <div class="mt-1">
     <h3 class="mt-1">Locale</h3>
-    <p>Select the preferred date detection locale.</p>
-    <div>
+    <small>Select the preferred date detection locale.</small>
+    <div style="margin-top: 5px;">
         <select [(ngModel)]="selectedLocale">
             <option [ngValue]="'en'">English - US</option>
             <option [ngValue]="'en_GB'">English - GB</option>
@@ -17,10 +17,11 @@
     </div>
 </div>
 <div class="mt-1">
-    <h3 class="mt-1">Removed Matched String</h3>
-    <p>If enabled, matched date string will be removed from the task title.</p>
-    <div>
-        <input type="checkbox" [checked]="removeMatched" (change)="removeMatched = !removeMatched">
+    <h3 class="mt-1">Remove Matched String</h3>
+    <small>If enabled, matched date string will be removed from the task title.</small>
+    <div style="margin-top: 5px;">
+        <input type="checkbox" class="mr-1" [checked]="removeMatched" (change)="removeMatched = !removeMatched">
+        <label>Enable remove matched string from task title</label>
     </div>
 </div>
 <div class="mt-1">
