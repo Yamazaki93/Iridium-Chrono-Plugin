@@ -13,6 +13,7 @@ export class SettingsFrontendComponent implements OnInit, OnDestroy {
 
   selectedLocale = 'en';
   imagePath = '';
+  removeMatched = false;
   private subscription: Subscription;
   constructor(
     private injector: Injector,

@@ -17,5 +17,12 @@
     </div>
 </div>
 <div class="mt-1">
+    <h3 class="mt-1">Removed Matched String</h3>
+    <p>If enabled, matched date string will be removed from the task title.</p>
+    <div>
+        <input type="checkbox" [checked]="removeMatched" (change)="removedMatched = !removeMatched">
+    </div>
+</div>
+<div class="mt-1">
   <button class="btn btn-primary btn-outline" (click)="setSettings()">Update Settings</button>
 </div>
