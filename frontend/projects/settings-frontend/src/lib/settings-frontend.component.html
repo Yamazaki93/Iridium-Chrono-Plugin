@@ -2,3 +2,28 @@
     <img width="35px" style="margin-right: 10px" [src]="imagePath">
     <h2>Iridium Chrono Plugin</h2>
 </div>
+<div class="mt-1">
+    <h3 class="mt-1">Locale</h3>
+    <small>Select the preferred date detection locale.</small>
+    <div style="margin-top: 5px;">
+        <select [(ngModel)]="selectedLocale">
+            <option [ngValue]="'en'">English - US</option>
+            <option [ngValue]="'en_GB'">English - GB</option>
+            <option [ngValue]="'de'">Deutsche</option>
+            <option [ngValue]="'es'">Español</option>
+            <option [ngValue]="'fr'">Français</option>
+            <option [ngValue]="'ja'">日本語</option>
+        </select>
+    </div>
+</div>
+<div class="mt-1">
+    <h3 class="mt-1">Remove Matched String</h3>
+    <small>If enabled, matched date string will be removed from the task title.</small>
+    <div style="margin-top: 5px;">
+        <input type="checkbox" class="mr-1" [checked]="removeMatched" (change)="removeMatched = !removeMatched">
+        <label>Enable remove matched string from task title</label>
+    </div>
+</div>
+<div class="mt-1">
+  <button class="btn btn-primary btn-outline" (click)="setSettings()">Update Settings</button>
+</div>
