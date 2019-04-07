@@ -23,8 +23,8 @@ Initial Release
 
 ## Install From Pre-Packaged (Recommended)
 
- 1. Download [`packaged.zip`]('https://github.com/Yamazaki93/Iridium-Chrono-Plugin/raw/master/packaged.zip') file from the repo. 
- 2. Launch Iridium and follow the [`Offline Installation`]('https://michaellu.gitbook.io/iridium-documentation/user-guide/untitled#offline-installation') steps to install the plugin.
+ 1. Download [`packaged.zip`](https://github.com/Yamazaki93/Iridium-Chrono-Plugin/raw/master/packaged.zip) file from the repo. 
+ 2. Launch Iridium and follow the [`Offline Installation`](https://michaellu.gitbook.io/iridium-documentation/user-guide/untitled#offline-installation) steps to install the plugin.
 
 ## Install From Source
  
